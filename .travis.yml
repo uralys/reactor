@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+  - 13
+
+cache: npm
+
+jobs:
+  include:
+    - stage: tests
+      if: '(NOT (branch = master))'
+      script:
+        - npm run lint
+        - npm test
+
+    - stage: build
+      script: npm run build
