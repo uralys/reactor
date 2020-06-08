@@ -7,7 +7,7 @@ const YourApp = (options = {}) => {
   }
 
   const container = document.getElementById(options.container);
-  render(<div>plop!</div>, container);
+  render(<div>your app!</div>, container);
 };
 
 if (window && !window.YourApp) {

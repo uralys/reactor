@@ -3,11 +3,11 @@
   "version": "0.0.1",
   "description": "YOUR DESC",
   "module": "dist/es/index.js",
-  "unpkg": "dist/min/nexus.min.js",
   "scripts": {
-    "build": "npm run clean && npm run build:es && npm run build:min",
+    "build": "npm run clean && npm run build:es && npm run build:min && npm run build:public",
     "build:es": "BABEL_ENV=es babel src --out-dir dist/es -s --copy-files",
     "build:min": "webpack --config webpack.config.production.js",
+    "build:public": "sh ./scripts/prepare-public-files.sh",
     "clean": "rimraf ./dist",
     "start:dev": "webpack-dev-server --config webpack.config.dev-server.js",
     "lint": "eslint src",
