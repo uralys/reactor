@@ -1,6 +1,5 @@
 const path = require('path');
 const CompressionPlugin = require('compression-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
