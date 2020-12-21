@@ -8,7 +8,12 @@ const App = (options = {}) => {
   }
 
   const container = document.getElementById(options.container);
-  render(<div>your app!</div>, container);
+  render(
+    <div>
+      <b>🚀 skeleton-react</b>
+    </div>,
+    container
+  );
 };
 
 if (window && !window.App) {
