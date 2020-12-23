@@ -17,5 +17,8 @@
     "react": {
       "version": "detect"
     }
-  }
+  },
+  "ignorePatterns": [
+    "*.html"
+  ]
 }
