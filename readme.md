@@ -66,8 +66,16 @@ Change the remote to yours:
 > npm run start:dev
 ```
 
-## deploy
+## production
+
+Build command:
 
 ```sh
 > npm run build
+```
+
+Publish directory:
+
+```sh
+dist/public
 ```
