@@ -1,6 +1,11 @@
-# Skeleton
+# 🦴 Skeleton React App
 
 Start from this boilerplate to create a react web app.
+
+note the default deps:
+
+- react
+- styled-components
 
 ## Setup
 
@@ -43,6 +48,7 @@ Change the remote to yours:
 ```
 
 - Rename `YourApp` in `public/index.html`
+- Rename `App` and `title` in `sandbox/index.html`
 
 ## Tips
 
