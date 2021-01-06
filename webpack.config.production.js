@@ -5,7 +5,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 module.exports = {
   mode: 'production',
   entry: {
-    app: './src/index.js',
+    app: './src/index.js'
   },
   module: {
     strictExportPresence: true,
@@ -15,15 +15,15 @@ module.exports = {
         include: path.resolve(__dirname, './src'),
         loader: require.resolve('babel-loader'),
         options: {
-          cacheDirectory: true,
-        },
-      },
-    ],
+          cacheDirectory: true
+        }
+      }
+    ]
   },
   plugins: [new CompressionPlugin()],
   output: {
     filename: '[name].min.js',
-    path: path.resolve(__dirname, 'dist/min'),
+    path: path.resolve(__dirname, 'dist/min')
   },
   optimization: {
     minimize: true,
@@ -31,9 +31,9 @@ module.exports = {
       new TerserPlugin({
         parallel: true,
         terserOptions: {
-          ecma: 6,
-        },
-      }),
-    ],
-  },
+          ecma: 6
+        }
+      })
+    ]
+  }
 };
