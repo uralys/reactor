@@ -63,7 +63,7 @@ Change the remote to yours:
 ### backend
 
 - use `AWS API gateway` for your REST API
-- use [`netlify`](https://app.netlify.com/) to deploy
+- use [`netlify`](https://app.netlify.com/) to deploy. (Note: set `NODE_VERSION` in environnment vars)
 
 ## dev
 
