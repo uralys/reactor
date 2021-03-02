@@ -47,8 +47,8 @@ Change the remote to yours:
   "description": "YOUR DESC",
 ```
 
-- Rename `YourApp` in `public/index.html`
-- Rename `App` and `title` in `sandbox/index.html`
+- Rename `createYourApp` and `title` in `public/index.html`
+- Rename `createYourApp` start your own in `src/index.js`
 
 ## Tips and suggestions
 

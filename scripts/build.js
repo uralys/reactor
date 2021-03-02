@@ -1,11 +1,10 @@
 const chalk = require('chalk');
 const esbuild = require('esbuild');
 const svgrPlugin = require('esbuild-plugin-svgr');
-const pkg = require('../package.json');
 const brotli = require('./compress');
 
 const DIST = 'dist';
-const bundleName = `app-${pkg.version}`;
+const bundleName = `app`;
 
 const banner = `/**
  * BUNDLED with esbuild

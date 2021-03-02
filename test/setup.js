@@ -1,5 +1,5 @@
 import test from 'ava';
 
-test('should run ava properly', t => {
+test('should still use babel to run ava properly', t => {
   t.truthy(true);
 });
