@@ -4,12 +4,9 @@
   "description": "YOUR DESC",
   "module": "dist/es/index.js",
   "scripts": {
-    "build": "npm run clean && npm run build:es && npm run build:min && npm run build:public",
-    "build:es": "BABEL_ENV=es babel src --out-dir dist/es -s --copy-files",
-    "build:min": "webpack --config webpack.config.production.js",
-    "build:public": "sh ./scripts/prepare-public-files.sh",
-    "clean": "rimraf ./dist",
-    "start:dev": "webpack serve --config webpack.config.dev-server.js",
+    "clean": "rm -rf ./dist",
+    "build": "npm run clean && node scripts/build.js && sh ./scripts/prepare-public-files.sh",
+    "start:dev": "node scripts/dev-server.js",
     "ncu": "npm-check-updates",
     "lint": "eslint src",
     "test": "ava"
