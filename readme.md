@@ -50,19 +50,19 @@ Change the remote to yours:
 - Rename `YourApp` in `public/index.html`
 - Rename `App` and `title` in `sandbox/index.html`
 
-## Tips
+## Tips and suggestions
 
 ### frontend
 
+- use [`La Taverne`](https://github.com/uralys/taverne) for your state management
 - add [`reactrouter`](https://reactrouter.com/web/guides/quick-start)
 - add [`axios`](https://github.com/axios/axios) for http requests
 - use this [`auth0 guide`](https://auth0.com/blog/complete-guide-to-react-user-authentication/) for the authentication
-- use [`hookstores`](https://auth0.com/blog/complete-guide-to-react-user-authentication/) for Flux state management
 - add animations with [`react-spring`](https://github.com/pmndrs/react-spring)
 
 ### backend
 
-- use `AWS API gateway` for your REST API
+- use [serverless](https://www.serverless.com/)!
 - use [`netlify`](https://app.netlify.com/) to deploy. (Note: set `NODE_VERSION` in environnment vars)
 
 ## dev
