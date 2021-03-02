@@ -2,7 +2,6 @@
   "name": "@your/app",
   "version": "0.0.1",
   "description": "YOUR DESC",
-  "module": "dist/es/index.js",
   "scripts": {
     "clean": "rm -rf ./dist",
     "build": "npm run clean && node scripts/build.js && sh ./scripts/prepare-public-files.sh",
@@ -17,16 +16,11 @@
     "styled-components": "^5.2.1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.13.0",
-    "@babel/core": "^7.13.8",
-    "@babel/plugin-transform-async-to-generator": "^7.13.0",
     "@babel/preset-env": "^7.13.9",
     "@babel/preset-react": "^7.12.13",
     "@babel/register": "^7.13.8",
     "ava": "^3.15.0",
     "babel-eslint": "^10.1.0",
-    "babel-loader": "^8.2.2",
-    "compression-webpack-plugin": "^7.1.2",
     "esbuild": "^0.8.54",
     "esbuild-plugin-svgr": "^0.0.1",
     "eslint": "^7.21.0",
@@ -36,13 +30,8 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.3.1",
     "eslint-plugin-react": "^7.22.0",
-    "html-webpack-plugin": "^5.2.0",
     "live-server": "^1.2.1",
-    "npm-check-updates": "^11.1.10",
-    "terser-webpack-plugin": "^5.1.1",
-    "webpack": "^5.24.2",
-    "webpack-cli": "^4.5.0",
-    "webpack-dev-server": "^3.11.2"
+    "npm-check-updates": "^11.1.10"
   },
   "files": [
     "_dist",
