@@ -4,12 +4,12 @@ const liveServer = require('live-server');
 const historyApiFallback = require('connect-history-api-fallback');
 const svgrPlugin = require('esbuild-plugin-svgr');
 
-const SANDBOX = 'sandbox';
+const PUBLIC = 'public';
 
 esbuild
   .build({
     entryPoints: ['src/index.js'],
-    outfile: `${SANDBOX}/app.bundle.js`,
+    outfile: 'public/app.min.js',
     format: 'cjs',
     loader: {
       '.js': 'jsx'
@@ -29,7 +29,7 @@ esbuild
     console.log(' ');
 
     liveServer.start({
-      root: SANDBOX,
+      root: PUBLIC,
       open: false,
       middleware: [historyApiFallback()]
     });

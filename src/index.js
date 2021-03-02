@@ -2,7 +2,7 @@ import 'regenerator-runtime/runtime';
 import React from 'react';
 import {render} from 'react-dom';
 
-const App = (options = {}) => {
+const createYourApp = (options = {}) => {
   if (!options.container) {
     console.error('[App] Requires a container.');
   }
@@ -16,6 +16,6 @@ const App = (options = {}) => {
   );
 };
 
-if (window && !window.App) {
-  window.App = App;
+if (window && !window.createYourApp) {
+  window.createYourApp = createYourApp;
 }
