@@ -19,5 +19,3 @@ const App = (options = {}) => {
 if (window && !window.App) {
   window.App = App;
 }
-
-export default App;
