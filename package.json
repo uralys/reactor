@@ -11,6 +11,7 @@
     "test": "ava"
   },
   "dependencies": {
+    "connect-history-api-fallback": "^1.6.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "styled-components": "^5.2.1"
