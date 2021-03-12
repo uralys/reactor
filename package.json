@@ -16,13 +16,13 @@
     "styled-components": "^5.2.1"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.13.9",
+    "@babel/preset-env": "^7.13.10",
     "@babel/preset-react": "^7.12.13",
     "@babel/register": "^7.13.8",
     "ava": "^3.15.0",
     "babel-eslint": "^10.1.0",
     "connect-history-api-fallback": "^1.6.0",
-    "esbuild": "^0.8.56",
+    "esbuild": "^0.9.1",
     "esbuild-plugin-svgr": "^0.0.1",
     "eslint": "^7.21.0",
     "eslint-config-prettier": "^8.1.0",
@@ -32,6 +32,6 @@
     "eslint-plugin-promise": "^4.3.1",
     "eslint-plugin-react": "^7.22.0",
     "live-server": "^1.2.1",
-    "npm-check-updates": "^11.1.10"
+    "npm-check-updates": "^11.2.2"
   }
 }

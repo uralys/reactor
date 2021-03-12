@@ -1,4 +1,3 @@
-const path = require('path');
 const {createBrotliCompress} = require('zlib');
 const {pipeline} = require('stream');
 const {createReadStream, createWriteStream, statSync} = require('fs');
@@ -36,9 +35,7 @@ const compress = async asset => {
   };
 };
 
-const brotli = metafile => {
-  const meta = require(path.resolve(__dirname, `../${metafile}`));
-
+const brotli = meta => {
   const assets = Object.keys(meta.outputs).filter(
     asset => asset.indexOf('.js.map') === -1
   );

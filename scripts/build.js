@@ -14,7 +14,7 @@ const banner = `/**
  */
 `;
 
-const resultMessage = (results, metafile) => {
+const resultMessage = results => {
   console.log(`${chalk.green(' ✔ Success')}`);
 
   results.forEach(({output, size}) => {
@@ -25,24 +25,22 @@ const resultMessage = (results, metafile) => {
     );
   });
 
-  console.log(`   (${chalk.hex('#ffddFd')(`${metafile}`)})`);
   console.log(' ');
 };
 
 const buildApp = ({format, minify, compress}) => {
   const MODE = minify ? 'min' : 'debug';
   const outfile = `${DIST}/${MODE}/${bundleName}.${MODE}.js`;
-  const metafile = `${DIST}/meta/meta-${MODE}.json`;
 
   esbuild
     .build({
-      banner,
+      banner: {js: banner},
       format,
       minify,
       entryPoints: ['src/index.js'],
       bundle: true,
       sourcemap: true,
-      metafile,
+      metafile: true,
       outfile,
       loader: {'.js': 'jsx'},
       plugins: [svgrPlugin()],
@@ -50,13 +48,14 @@ const buildApp = ({format, minify, compress}) => {
         'process.env.NODE_ENV': '"production"'
       }
     })
-    .then(() => {
+    .then(result => {
+      const metafile = result.metafile;
       if (compress) {
         brotli(metafile).then(results => {
-          resultMessage(results, metafile);
+          resultMessage(results);
         });
       } else {
-        resultMessage([{output: outfile}], metafile);
+        resultMessage([{output: outfile}]);
       }
     })
     .catch(() => process.exit(1));
