@@ -83,5 +83,5 @@ Build command:
 Publish directory:
 
 ```sh
-dist/public
+public
 ```
