@@ -22,7 +22,7 @@
     "ava": "^3.15.0",
     "babel-eslint": "^10.1.0",
     "connect-history-api-fallback": "^1.6.0",
-    "esbuild": "^0.9.3",
+    "esbuild": "^0.9.5",
     "esbuild-plugin-svgr": "^0.0.1",
     "eslint": "^7.22.0",
     "eslint-config-prettier": "^8.1.0",
