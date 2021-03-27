@@ -2,10 +2,7 @@
   "name": "@uralys/reactor",
   "version": "0.0.3",
   "description": "🦊 Tooling to create and build your React app",
-  "bin": {
-    "build": "scripts/build.js",
-    "start": "scripts/dev-server.js"
-  },
+  "bin": "./scripts/reactor.js",
   "scripts": {
     "lint": "eslint -c .eslintrc src boot",
     "ncu": "npm-check-updates",
@@ -16,7 +13,8 @@
   "dependencies": {
     "esbuild": "^0.9.5",
     "esbuild-plugin-svgr": "^0.0.1",
-    "live-server": "^1.2.1"
+    "live-server": "^1.2.1",
+    "yargs": "^16.2.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
