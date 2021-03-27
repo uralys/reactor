@@ -1,10 +1,10 @@
 {
   "name": "@uralys/reactor",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "🦊 Tooling to create and build your React app",
   "bin": {
-    "build": "./scripts/build.js",
-    "start": "./scripts/dev-server.js"
+    "build": "scripts/build.js",
+    "start": "scripts/dev-server.js"
   },
   "scripts": {
     "lint": "eslint -c .eslintrc src boot",
