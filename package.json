@@ -7,8 +7,11 @@
     "start": "./scripts/dev-server.js"
   },
   "scripts": {
+    "lint": "eslint -c .eslintrc src boot",
     "ncu": "npm-check-updates",
-    "lint": "eslint -c .eslintrc src boot"
+    "build": "rm -rf ./dist && sh scripts/copy-package-files.sh",
+    "prerelease": "npm run build",
+    "release": "npm publish ./dist"
   },
   "dependencies": {
     "esbuild": "^0.9.5",
