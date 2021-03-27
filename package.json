@@ -1,37 +1,26 @@
 {
-  "name": "@your/app",
+  "name": "@uralys/reactor",
   "version": "0.0.1",
-  "description": "YOUR DESC",
+  "description": "🦊 Tooling to create and build your React app",
+  "bin": {
+    "build": "./scripts/build.js",
+    "start": "./scripts/dev-server.js"
+  },
   "scripts": {
-    "prebuild": "rm -rf ./dist",
-    "build": "node scripts/build.js",
-    "start:dev": "node scripts/dev-server.js",
     "ncu": "npm-check-updates",
-    "lint": "eslint src",
-    "test": "ava"
+    "lint": "eslint -c .eslintrc src boot"
   },
   "dependencies": {
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "styled-components": "^5.2.1"
-  },
-  "devDependencies": {
-    "@babel/preset-env": "^7.13.10",
-    "@babel/preset-react": "^7.12.13",
-    "@babel/register": "^7.13.8",
-    "ava": "^3.15.0",
-    "babel-eslint": "^10.1.0",
-    "connect-history-api-fallback": "^1.6.0",
     "esbuild": "^0.9.5",
     "esbuild-plugin-svgr": "^0.0.1",
+    "live-server": "^1.2.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
     "eslint": "^7.22.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-config-standard": "^16.0.2",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.3.1",
     "eslint-plugin-react": "^7.22.0",
-    "live-server": "^1.2.1",
     "npm-check-updates": "^11.3.0"
   }
 }

@@ -2,7 +2,7 @@ const chalk = require('chalk');
 const esbuild = require('esbuild');
 const svgrPlugin = require('esbuild-plugin-svgr');
 
-console.log('☢️  warming esbuild...');
+console.log('☢️  warming up esbuild...');
 
 const outfile = 'public/app.min.js';
 
@@ -14,7 +14,8 @@ esbuild
     metafile: true,
     outfile,
     loader: {
-      '.js': 'jsx'
+      '.js': 'jsx',
+      '.md': 'text'
     },
     plugins: [svgrPlugin()],
     define: {
