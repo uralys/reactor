@@ -1,8 +1,10 @@
 {
   "name": "@uralys/reactor",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "🦊 Tooling to create and build your React app",
-  "bin": "./scripts/reactor.js",
+  "bin": {
+    "reactor": "scripts/reactor.js"
+  },
   "scripts": {
     "lint": "eslint -c .eslintrc src boot",
     "ncu": "npm-check-updates",
