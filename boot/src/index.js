@@ -23,7 +23,7 @@ const GlobalStyle = createGlobalStyle`
 
 // -----------------------------------------------------------------------------
 
-const createYourApp = (options = {}) => {
+const createApp = (options = {}) => {
   if (!options.container) {
     console.error('[App] Requires a container.');
   }
@@ -40,6 +40,6 @@ const createYourApp = (options = {}) => {
 
 // -----------------------------------------------------------------------------
 
-if (window && !window.createYourApp) {
-  window.createYourApp = createYourApp;
+if (window && !window.createApp) {
+  window.createApp = createApp;
 }
