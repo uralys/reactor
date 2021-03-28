@@ -8,7 +8,7 @@ const svgrPlugin = require('esbuild-plugin-svgr');
 
 const PUBLIC = 'public';
 
-const start = () => {
+const start = additionalConfig => {
   esbuild
     .build({
       entryPoints: ['src/index.js'],
@@ -24,7 +24,8 @@ const start = () => {
       define: {
         'process.env.NODE_ENV': '"development"',
         global: 'globalThis'
-      }
+      },
+      ...additionalConfig
     })
     .then(result => {
       console.log('\n☢️  server running:');

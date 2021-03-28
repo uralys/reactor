@@ -4,7 +4,7 @@ const chalk = require('chalk');
 const esbuild = require('esbuild');
 const svgrPlugin = require('esbuild-plugin-svgr');
 
-const build = () => {
+const build = additionalConfig => {
   console.log('☢️  warming up esbuild...');
 
   const outfile = 'public/app.min.js';
@@ -17,14 +17,14 @@ const build = () => {
       metafile: true,
       outfile,
       loader: {
-        '.js': 'jsx',
-        '.md': 'text'
+        '.js': 'jsx'
       },
       plugins: [svgrPlugin()],
       define: {
         'process.env.NODE_ENV': '"production"',
         global: 'globalThis'
-      }
+      },
+      ...additionalConfig
     })
     .then(result => {
       console.log(`${chalk.green(' ✔ Success')}`);
