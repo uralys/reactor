@@ -58,6 +58,29 @@ const create = () => {
   shell.exec(`npm i --save-dev ${DEV_DEPS.join(' ')}`);
 
   // ---------
+  const gitignore = `
+    //# built files
+    tocs
+    public/*.css
+    public/*.js
+    public/*.map
+
+    # deps
+    node_modules
+
+    # osx
+    *.DS_Store
+  `;
+
+  const gitignorePath = `${projectPath}/.gitignore`;
+
+  fs.writeFileSync(gitignorePath, gitignore, err => {
+    if (err) {
+      return console.log('❌', err);
+    }
+  });
+
+  // ---------
   console.log('☢️  reactor updated you files successfully.');
   console.log(
     `✅ you can now start your App \n > ${chalk.bold.green(
