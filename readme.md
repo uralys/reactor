@@ -27,6 +27,16 @@ Let's create your boot files:
  > npm run start:dev
 ```
 
+You can now version and push your project to your repository
+
+```sh
+> git init
+> git add .
+> git commit -m "Initial commit from @uralys/reactor"
+> git remote add origin https://github.com/your-new-repo
+> git push origin master
+```
+
 ## dev
 
 ### publish
