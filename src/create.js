@@ -31,6 +31,7 @@ const create = () => {
   console.log(`☢️  copying files to ${chalk.magenta(projectPath)}`);
   shell.cp('-r', `${bootPath}/*`, projectPath);
   shell.cp('-r', `${bootPath}/.*`, projectPath);
+  shell.mv(`${projectPath}/.gitignore.to.rename`, `${projectPath}/.gitignore`);
 
   // ---------
   console.log(`☢️  updating package.json scripts...`);
@@ -53,32 +54,8 @@ const create = () => {
 
   // ---------
   console.log(`☢️  installing dev deps...`);
-
   shell.exec(`npm i --save ${DEPS.join(' ')}`);
   shell.exec(`npm i --save-dev ${DEV_DEPS.join(' ')}`);
-
-  // ---------
-  const gitignore = `
-    //# built files
-    tocs
-    public/*.css
-    public/*.js
-    public/*.map
-
-    # deps
-    node_modules
-
-    # osx
-    *.DS_Store
-  `;
-
-  const gitignorePath = `${projectPath}/.gitignore`;
-
-  fs.writeFileSync(gitignorePath, gitignore, err => {
-    if (err) {
-      return console.log('❌', err);
-    }
-  });
 
   // ---------
   console.log('☢️  reactor updated you files successfully.');
