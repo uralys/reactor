@@ -1,0 +1,11 @@
+# built files
+tocs
+public/*.css
+public/*.js
+public/*.map
+
+# deps
+node_modules
+
+# osx
+*.DS_Store
