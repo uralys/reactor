@@ -61,7 +61,7 @@ const create = () => {
   console.log('☢️  reactor updated you files successfully.');
   console.log(
     `✅ you can now start your App \n > ${chalk.bold.green(
-      'npx reactor start'
+      'npm run start:dev'
     )}`
   );
 };

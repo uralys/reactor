@@ -17,6 +17,16 @@ Now you can install `Reactor`:
 > npm i --save-deps @uralys/reactor
 ```
 
+Let's create your boot files:
+
+```sh
+> npx reactor create
+
+☢️  reactor updated you files successfully.
+✅ you can now start your App
+ > npm run start:dev
+```
+
 ## dev
 
 ### publish
