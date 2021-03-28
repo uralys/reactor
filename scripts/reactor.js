@@ -7,6 +7,7 @@ const yargs = require('yargs');
 const pkg = require('../package.json');
 
 const build = require('../src/build');
+const create = require('../src/create');
 const generateTOC = require('../src/generate-toc');
 const start = require('../src/start');
 
@@ -70,6 +71,10 @@ const reactor = args => {
     case TOC: {
       const {documentationConfig} = getAdditionalConfig();
       generateTOC(documentationConfig);
+      break;
+    }
+    case CREATE: {
+      create();
       break;
     }
     default: {
