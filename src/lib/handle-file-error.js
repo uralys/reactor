@@ -1,6 +1,6 @@
 const chalk = require('chalk');
 
-const onEsbuildError = ({path}) => e => {
+const onFileError = ({path}) => e => {
   if (e.message.indexOf(path) !== -1) {
     console.log(
       ` > did you create your App ?\n try [${chalk.bold.green(
@@ -10,4 +10,4 @@ const onEsbuildError = ({path}) => e => {
   }
 };
 
-module.exports = onEsbuildError;
+module.exports = onFileError;

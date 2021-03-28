@@ -10,6 +10,14 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
+
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 100vh;
+    color: #ededed;
+    background-color: #101;
   }
 `;
 
@@ -24,11 +32,13 @@ const createYourApp = (options = {}) => {
   render(
     <div>
       <GlobalStyle />
-      <b>🚀 skeleton-react</b>
+      <h1>Booted with Reactor</h1>
     </div>,
     container
   );
 };
+
+// -----------------------------------------------------------------------------
 
 if (window && !window.createYourApp) {
   window.createYourApp = createYourApp;

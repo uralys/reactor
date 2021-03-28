@@ -62,9 +62,9 @@ const extractTOC = (sourcePath, distPath) => fileName => {
   toc = toc.split(`${topNav}\n`)[1];
   console.log(toc);
 
-  const output = `${distPath}/${outputName}`;
+  const outputPath = `${distPath}/${outputName}`;
 
-  fs.writeFile(output, toc, err => {
+  fs.writeFile(outputPath, toc, err => {
     if (err) {
       return console.log('❌', err);
     }
