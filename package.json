@@ -13,17 +13,18 @@
     "release": "npm publish ./dist"
   },
   "dependencies": {
-    "esbuild": "^0.9.5",
+    "connect-history-api-fallback": "^1.6.0",
+    "esbuild": "^0.10.2",
     "esbuild-plugin-svgr": "^0.0.1",
     "live-server": "^1.2.1",
     "yargs": "^16.2.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.22.0",
+    "eslint": "^7.23.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-config-standard": "^16.0.2",
-    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react": "^7.23.1",
     "npm-check-updates": "^11.3.0"
   }
 }
