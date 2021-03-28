@@ -1,8 +1,25 @@
 # Reactor
 
+## intro
+
+A simple "createReactApp" using esbuild instead of webpack.
+
+Start with:
+
+- `npx reactor create` to bootstrap your React app and scripts
+
+Then you'll be able to use:
+
+- `npm run start:dev` to run a local server with `esbuild` and `live-server`
+- `npm run build` to build you `/public` distribution with `esbuild`
+
+Optionally:
+
+- `npm run toc` to generate TOC from you markdowns if you use `Reactor` to generate a documentation website. I'll document this later.
+
 ## create
 
-First prepare your new project with you package.json
+First prepare your new project with a startup package.json:
 (more info on [npmjs doc](https://docs.npmjs.com/cli/v6/commands/npm-init))
 
 ```sh
