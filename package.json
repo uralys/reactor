@@ -13,11 +13,14 @@
     "release": "npm publish ./dist"
   },
   "dependencies": {
+    "chalk": "^2.4.2",
     "connect-history-api-fallback": "^1.6.0",
     "doctoc": "^2.0.0",
     "esbuild": "^0.10.2",
     "esbuild-plugin-svgr": "^0.0.1",
     "live-server": "^1.2.1",
+    "mkdirp": "^1.0.4",
+    "rimraf": "^3.0.2",
     "yargs": "^16.2.0"
   },
   "devDependencies": {
