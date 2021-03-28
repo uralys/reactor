@@ -5,7 +5,7 @@ const esbuild = require('esbuild');
 const svgrPlugin = require('esbuild-plugin-svgr');
 
 const build = additionalConfig => {
-  console.log('☢️  warming up esbuild...');
+  console.log('☢️  [build] warming up esbuild...');
 
   const outfile = 'public/app.min.js';
 

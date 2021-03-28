@@ -7,6 +7,7 @@ const yargs = require('yargs');
 const pkg = require('../package.json');
 
 const build = require('../src/build');
+const generateTOC = require('../src/generate-toc');
 const start = require('../src/start');
 
 // -----------------------------------------------------------------------------
@@ -14,7 +15,8 @@ const start = require('../src/start');
 const BUILD = 'build';
 const START = 'start';
 const CREATE = 'create';
-const commands = [BUILD, START, CREATE];
+const TOC = 'toc';
+const commands = [BUILD, START, CREATE, TOC];
 const commandMessage = `choose one command: [${commands}]`;
 
 // -----------------------------------------------------------------------------
@@ -25,8 +27,10 @@ const CONFIG_FILE = 'reactor.config.js';
 
 const getAdditionalConfig = () => {
   let additionalConfig;
+
   try {
-    additionalConfig = require(path.resolve(process.cwd(), `./${CONFIG_FILE}`));
+    const configPath = path.resolve(process.cwd(), `./${CONFIG_FILE}`);
+    additionalConfig = require(configPath);
   } catch (e) {}
 
   if (!additionalConfig) {
@@ -35,30 +39,34 @@ const getAdditionalConfig = () => {
     );
   }
 
-  return additionalConfig;
+  return {
+    esbuildConfig: additionalConfig.esbuild,
+    documentationConfig: additionalConfig.documentation
+  };
 };
 
 // -----------------------------------------------------------------------------
 
 const reactor = args => {
-  console.log(chalk.bold.green(`Reactor v${pkg.version}`));
-
   const command = argv._[0];
   if (!commands.includes(command)) {
     yargs.showHelp();
     return;
   }
 
-  console.log(`${chalk.bold.green(`Reactor v${pkg.version}`)}/${command}`);
-  const additionalConfig = getAdditionalConfig();
+  const {esbuildConfig, documentationConfig} = getAdditionalConfig();
 
   switch (command) {
     case BUILD: {
-      build(additionalConfig);
+      build(esbuildConfig);
       break;
     }
     case START: {
-      start(additionalConfig);
+      start(esbuildConfig);
+      break;
+    }
+    case TOC: {
+      generateTOC(documentationConfig);
       break;
     }
     default: {
@@ -75,6 +83,7 @@ const argv = yargs(process.argv.slice(2))
   .command(BUILD, 'use esbuild to create the distribution files')
   .command(START, 'run the local dev server')
   .command(CREATE, 'bootstrap your React app with initial files')
+  .command(TOC, 'generate TOC for your documentation from your markdown files')
   .demandCommand(1, 1, commandMessage, commandMessage)
   .help('h')
   .version(pkg.version)

@@ -9,6 +9,8 @@ const svgrPlugin = require('esbuild-plugin-svgr');
 const PUBLIC = 'public';
 
 const start = additionalConfig => {
+  console.log('☢️  [start] warming up esbuild...');
+
   esbuild
     .build({
       entryPoints: ['src/index.js'],

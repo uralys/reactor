@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "connect-history-api-fallback": "^1.6.0",
+    "doctoc": "^2.0.0",
     "esbuild": "^0.10.2",
     "esbuild-plugin-svgr": "^0.0.1",
     "live-server": "^1.2.1",
