@@ -56,18 +56,19 @@ const reactor = args => {
     return;
   }
 
-  const {esbuildConfig, documentationConfig} = getAdditionalConfig();
-
   switch (command) {
     case BUILD: {
+      const {esbuildConfig} = getAdditionalConfig();
       build(esbuildConfig);
       break;
     }
     case START: {
+      const {esbuildConfig} = getAdditionalConfig();
       start(esbuildConfig);
       break;
     }
     case TOC: {
+      const {documentationConfig} = getAdditionalConfig();
       generateTOC(documentationConfig);
       break;
     }

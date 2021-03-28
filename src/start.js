@@ -5,15 +5,17 @@ const esbuild = require('esbuild');
 const liveServer = require('live-server');
 const historyApiFallback = require('connect-history-api-fallback');
 const svgrPlugin = require('esbuild-plugin-svgr');
+const handleFileError = require('./lib/handle-file-error');
 
 const PUBLIC = 'public';
+const entry = 'src/index.js';
 
 const start = additionalConfig => {
   console.log('☢️  [start] warming up esbuild...');
 
   esbuild
     .build({
-      entryPoints: ['src/index.js'],
+      entryPoints: [entry],
       outfile: 'public/app.min.js',
       format: 'cjs',
       loader: {
@@ -39,7 +41,8 @@ const start = additionalConfig => {
         open: false,
         middleware: [historyApiFallback()]
       });
-    });
+    })
+    .catch(handleFileError({path: entry}));
 };
 
 module.exports = start;

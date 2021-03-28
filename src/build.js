@@ -3,15 +3,17 @@
 const chalk = require('chalk');
 const esbuild = require('esbuild');
 const svgrPlugin = require('esbuild-plugin-svgr');
+const handleFileError = require('./lib/handle-file-error');
 
 const build = additionalConfig => {
   console.log('☢️  [build] warming up esbuild...');
 
   const outfile = 'public/app.min.js';
+  const entry = 'src/index.js';
 
   esbuild
     .build({
-      entryPoints: ['src/index.js'],
+      entryPoints: [entry],
       minify: true,
       bundle: true,
       metafile: true,
@@ -36,7 +38,7 @@ const build = additionalConfig => {
           .bold(`${outfile}`)} (${nbBytes})`
       );
     })
-    .catch(() => process.exit(1));
+    .catch(handleFileError({path: entry}));
 };
 
 module.exports = build;

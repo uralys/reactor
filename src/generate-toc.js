@@ -5,6 +5,8 @@ const mkdirp = require('mkdirp');
 const rimraf = require('rimraf');
 const transform = require('doctoc/lib/transform');
 
+const handleFileError = require('./lib/handle-file-error');
+
 // -----------------------------------------------------------------------------
 
 const TOC_HEADER =
@@ -20,7 +22,16 @@ const clean = distPath => {
 // -----------------------------------------------------------------------------
 
 const generate = (sourcePath, distPath) => {
-  const topics = fs.readdirSync(sourcePath);
+  let topics = [];
+
+  try {
+    topics = fs.readdirSync(sourcePath);
+  } catch (e) {
+    console.log(chalk.red.bold(e.message));
+    handleFileError({path: sourcePath})(e);
+    process.exit(0);
+  }
+
   topics.map(extractTOC(sourcePath, distPath));
 };
 
