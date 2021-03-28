@@ -23,7 +23,7 @@ First prepare your new project with a startup package.json:
 Now you can install `Reactor`:
 
 ```sh
-> npm i --save-deps @uralys/reactor
+> npm i --save-dev @uralys/reactor
 ```
 
 Let's create your boot files:
@@ -57,9 +57,22 @@ Optionally:
 
 - `npm run toc` to generate TOC from you markdowns if you use `Reactor` to generate a documentation website. I'll document this later.
 
-## dev
+## Tips and suggestions
 
-### publish
+### frontend
+
+- use [`La Taverne`](https://github.com/uralys/taverne) for your state management
+- add [`reactrouter`](https://reactrouter.com/web/guides/quick-start)
+- add [`axios`](https://github.com/axios/axios) for http requests
+- use this [`auth0 guide`](https://auth0.com/blog/complete-guide-to-react-user-authentication/) for the authentication
+- add animations with [`react-spring`](https://github.com/pmndrs/react-spring)
+
+### backend
+
+- use [serverless](https://www.serverless.com/)!
+- use [`netlify`](https://app.netlify.com/) to deploy. (Note: set `NODE_VERSION` in environnment vars)
+
+## dev:publish Reactor
 
 ```sh
 > npm version patch
