@@ -5,7 +5,7 @@ const esbuild = require('esbuild');
 const liveServer = require('live-server');
 const historyApiFallback = require('connect-history-api-fallback');
 const svgrPlugin = require('esbuild-plugin-svgr');
-const handleFileError = require('./lib/handle-file-error');
+const handleFileError = require('../lib/handle-file-error');
 
 const PUBLIC = 'public';
 const entry = 'src/index.js';

@@ -5,7 +5,7 @@ const mkdirp = require('mkdirp');
 const rimraf = require('rimraf');
 const transform = require('doctoc/lib/transform');
 
-const handleFileError = require('./lib/handle-file-error');
+const handleFileError = require('../lib/handle-file-error');
 
 // -----------------------------------------------------------------------------
 

@@ -3,7 +3,7 @@
   "version": "1.0.8",
   "description": "🦊 Tooling to create and build your React app",
   "bin": {
-    "reactor": "scripts/reactor.js"
+    "reactor": "src/reactor.js"
   },
   "scripts": {
     "lint": "eslint -c .eslintrc src boot",
