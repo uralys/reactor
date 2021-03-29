@@ -57,6 +57,23 @@ Optionally:
 
 - `npm run toc` to generate TOC from you markdowns if you use `Reactor` to generate a documentation website. I'll document this later.
 
+## Config
+
+```js
+{
+  esbuild: {
+    ...esbuildOptions
+  },
+  documentation: {
+    source: './path/to/docs',
+    dist: './path/to/tocs'
+  },
+  start: {
+    "hosts": ["platform.localhost"]
+  }
+}
+```
+
 ## Tips and suggestions
 
 ### frontend
