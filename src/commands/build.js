@@ -3,7 +3,7 @@
 const chalk = require('chalk');
 const esbuild = require('esbuild');
 const svgrPlugin = require('esbuild-plugin-svgr');
-const handleFileError = require('./lib/handle-file-error');
+const handleFileError = require('../lib/handle-file-error');
 
 const build = additionalConfig => {
   console.log('☢️  [build] warming up esbuild...');

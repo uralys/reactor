@@ -6,10 +6,10 @@ const yargs = require('yargs');
 
 const pkg = require('../package.json');
 
-const build = require('../src/build');
-const create = require('../src/create');
-const generateTOC = require('../src/generate-toc');
-const start = require('../src/start');
+const build = require('./commands/build');
+const create = require('./commands/create');
+const generateTOC = require('./commands/generate-toc');
+const start = require('./commands/start');
 
 // -----------------------------------------------------------------------------
 
@@ -17,6 +17,7 @@ const BUILD = 'build';
 const START = 'start';
 const CREATE = 'create';
 const TOC = 'toc';
+
 const commands = [BUILD, START, CREATE, TOC];
 const commandMessage = `choose one command: [${commands}]`;
 
@@ -39,12 +40,13 @@ const getAdditionalConfig = () => {
       chalk.yellow(`No file "${CONFIG_FILE}" was found\nUsing default setup.`)
     );
 
-    return {esbuildConfig: {}, documentationConfig: {}};
+    return {esbuildConfig: {}, documentationConfig: {}, startConfig: {}};
   }
 
   return {
     esbuildConfig: additionalConfig.esbuild,
-    documentationConfig: additionalConfig.documentation
+    documentationConfig: additionalConfig.documentation,
+    startConfig: additionalConfig.start
   };
 };
 
@@ -64,8 +66,8 @@ const reactor = args => {
       break;
     }
     case START: {
-      const {esbuildConfig} = getAdditionalConfig();
-      start(esbuildConfig);
+      const {esbuildConfig, startConfig} = getAdditionalConfig();
+      start(esbuildConfig, startConfig);
       break;
     }
     case TOC: {

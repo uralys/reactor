@@ -10,7 +10,7 @@ const handleFileError = require('./lib/handle-file-error');
 const PUBLIC = 'public';
 const entry = 'src/index.js';
 
-const start = additionalConfig => {
+const start = (esbuildConfig = {}, startConfig = {hosts: ['localhost']}) => {
   console.log('☢️  [start] warming up esbuild...');
 
   esbuild
@@ -29,11 +29,14 @@ const start = additionalConfig => {
         'process.env.NODE_ENV': '"development"',
         global: 'globalThis'
       },
-      ...additionalConfig
+      ...esbuildConfig
     })
     .then(result => {
       console.log('\n☢️  server running:');
-      console.log(chalk.bold.blue(`  - http://localhost:8080`));
+
+      startConfig.hosts.map(host =>
+        console.log(chalk.bold.blue(`  - http://${host}:8080`))
+      );
       console.log(' ');
 
       liveServer.start({
