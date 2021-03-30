@@ -3,7 +3,6 @@
 const chalk = require('chalk');
 const path = require('path');
 const yargs = require('yargs');
-const shell = require('shell');
 
 const pkg = require('../package.json');
 
@@ -63,15 +62,25 @@ const reactor = args => {
 
   switch (command) {
     case BUILD: {
-      const {prebuild = [], esbuildConfig} = getAdditionalConfig();
-      prebuild.forEach(commandFunction => commandFunction(shell));
-      build(prebuild, esbuildConfig);
+      const {prebuild = null, esbuildConfig} = getAdditionalConfig();
+      if (prebuild) {
+        prebuild();
+      }
+
+      build(esbuildConfig);
       break;
     }
     case START: {
-      const {prebuild = [], esbuildConfig, startConfig} = getAdditionalConfig();
-      prebuild.forEach(commandFunction => commandFunction(shell));
-      start(prebuild, esbuildConfig, startConfig);
+      const {
+        prebuild = null,
+        esbuildConfig,
+        startConfig
+      } = getAdditionalConfig();
+      if (prebuild) {
+        prebuild();
+      }
+
+      start(esbuildConfig, startConfig);
       break;
     }
     case TOC: {
