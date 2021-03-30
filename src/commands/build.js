@@ -5,7 +5,7 @@ const esbuild = require('esbuild');
 const svgrPlugin = require('esbuild-plugin-svgr');
 const handleFileError = require('../lib/handle-file-error');
 
-const build = additionalConfig => {
+const build = esbuildConfig => {
   console.log('☢️  [build] warming up esbuild...');
 
   const outfile = 'public/app.min.js';
@@ -26,7 +26,7 @@ const build = additionalConfig => {
         'process.env.NODE_ENV': '"production"',
         global: 'globalThis'
       },
-      ...additionalConfig
+      ...esbuildConfig
     })
     .then(result => {
       console.log(`${chalk.green(' ✔ Success')}`);
