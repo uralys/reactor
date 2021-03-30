@@ -1,11 +1,13 @@
 #!/usr/bin/env node
 
 const chalk = require('chalk');
+const fs = require('fs');
 const esbuild = require('esbuild');
 const liveServer = require('live-server');
 const historyApiFallback = require('connect-history-api-fallback');
 const svgrPlugin = require('esbuild-plugin-svgr');
 const handleFileError = require('../lib/handle-file-error');
+const writeMetafile = require('../lib/write-metafile');
 
 const PUBLIC = 'public';
 const entry = 'src/index.js';
@@ -32,6 +34,10 @@ const start = (esbuildConfig = {}, startConfig = {hosts: ['localhost']}) => {
       ...esbuildConfig
     })
     .then(result => {
+      if (esbuildConfig.metafile) {
+        writeMetafile(result.metafile);
+      }
+
       console.log('\n☢️  server running:');
 
       startConfig.hosts.map(host =>

@@ -2,8 +2,10 @@
 
 const chalk = require('chalk');
 const esbuild = require('esbuild');
+const fs = require('fs');
 const svgrPlugin = require('esbuild-plugin-svgr');
 const handleFileError = require('../lib/handle-file-error');
+const writeMetafile = require('../lib/write-metafile');
 
 const build = esbuildConfig => {
   console.log('☢️  [build] warming up esbuild...');
@@ -29,6 +31,10 @@ const build = esbuildConfig => {
       ...esbuildConfig
     })
     .then(result => {
+      if (esbuildConfig.metafile) {
+        writeMetafile(result.metafile);
+      }
+
       console.log(`${chalk.green(' ✔ Success')}`);
       const nbBytes = result.metafile.outputs[`${outfile}`].bytes;
 
