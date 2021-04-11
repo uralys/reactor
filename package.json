@@ -1,6 +1,6 @@
 {
   "name": "@uralys/reactor",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "🦊 Tooling to create and build your React app",
   "bin": {
     "reactor": "src/reactor.js"
