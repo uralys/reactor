@@ -2,7 +2,6 @@
 
 const chalk = require('chalk');
 const esbuild = require('esbuild');
-const fs = require('fs');
 const svgrPlugin = require('esbuild-plugin-svgr');
 const handleFileError = require('../lib/handle-file-error');
 const writeMetafile = require('../lib/write-metafile');

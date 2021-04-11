@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 const chalk = require('chalk');
-const fs = require('fs');
 const esbuild = require('esbuild');
 const liveServer = require('live-server');
 const historyApiFallback = require('connect-history-api-fallback');
