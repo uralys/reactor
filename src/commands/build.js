@@ -7,10 +7,10 @@ const handleFileError = require('../lib/handle-file-error');
 const writeMetafile = require('../lib/write-metafile');
 
 const build = esbuildConfig => {
-  console.log('☢️  [build] warming up esbuild...');
-
-  const outfile = 'public/app.min.js';
   const entry = 'src/index.js';
+  const outfile = 'public/app.min.js';
+
+  console.log('☢️  [build] warming up esbuild', {entry, outfile});
 
   esbuild
     .build({

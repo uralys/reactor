@@ -40,7 +40,7 @@ const getAdditionalConfig = () => {
       chalk.yellow(`No file "${CONFIG_FILE}" was found\nUsing default setup.`)
     );
 
-    return {esbuildConfig: {}, documentationConfig: {}, startConfig: {}};
+    return {esbuildConfig: {}, documentationConfig: {}, startConfig: undefined};
   }
 
   return {

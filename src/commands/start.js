@@ -12,7 +12,7 @@ const PUBLIC = 'public';
 const entry = 'src/index.js';
 
 const start = (esbuildConfig = {}, startConfig = {hosts: ['localhost']}) => {
-  console.log('☢️  [start] warming up esbuild...');
+  console.log('☢️  [start] warming up esbuild', {entry});
 
   esbuild
     .build({
