@@ -22,6 +22,7 @@
     "mkdirp": "^1.0.4",
     "rimraf": "^3.0.2",
     "shelljs": "^0.8.4",
+    "sitemap": "^7.0.0",
     "yargs": "^17.0.1"
   },
   "devDependencies": {
