@@ -16,7 +16,7 @@
     "chalk": "^4.1.1",
     "connect-history-api-fallback": "^1.6.0",
     "doctoc": "^2.0.0",
-    "esbuild": "^0.12.1",
+    "esbuild": "^0.12.6",
     "esbuild-plugin-svgr": "^0.0.1",
     "live-server": "^1.2.1",
     "mkdirp": "^1.0.4",
@@ -26,10 +26,10 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.26.0",
+    "eslint": "^7.28.0",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-config-standard": "^16.0.2",
-    "eslint-plugin-react": "^7.23.2",
-    "npm-check-updates": "^11.5.13"
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-react": "^7.24.0",
+    "npm-check-updates": "^11.6.0"
   }
 }
