@@ -3,6 +3,7 @@ tocs
 public/*.css
 public/*.js
 public/*.map
+public/sitemap.xml
 
 # deps
 node_modules
