@@ -40,13 +40,19 @@ const getAdditionalConfig = () => {
       chalk.yellow(`No file "${CONFIG_FILE}" was found\nUsing default setup.`)
     );
 
-    return {esbuildConfig: {}, documentationConfig: {}, startConfig: undefined};
+    return {
+      esbuildConfig: {},
+      documentationConfig: {},
+      startConfig: undefined,
+      sitemap: undefined
+    };
   }
 
   return {
     prebuild: additionalConfig.prebuild,
     esbuildConfig: additionalConfig.esbuild,
     documentationConfig: additionalConfig.documentation,
+    sitemapConfig: additionalConfig.sitemap,
     startConfig: additionalConfig.start
   };
 };
@@ -62,12 +68,16 @@ const reactor = args => {
 
   switch (command) {
     case BUILD: {
-      const {prebuild = null, esbuildConfig} = getAdditionalConfig();
+      const {
+        prebuild = null,
+        esbuildConfig,
+        sitemapConfig
+      } = getAdditionalConfig();
       if (prebuild) {
         prebuild();
       }
 
-      build(esbuildConfig);
+      build(esbuildConfig, sitemapConfig);
       break;
     }
     case START: {
@@ -94,7 +104,7 @@ const reactor = args => {
     }
     default: {
       console.log(command);
-      console.log('WIP');
+      console.log('🔴 not handled');
     }
   }
 };

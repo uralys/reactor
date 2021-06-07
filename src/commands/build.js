@@ -5,8 +5,9 @@ const esbuild = require('esbuild');
 const svgrPlugin = require('esbuild-plugin-svgr');
 const handleFileError = require('../lib/handle-file-error');
 const writeMetafile = require('../lib/write-metafile');
+const generateSitemap = require('./generate-sitemap');
 
-const build = esbuildConfig => {
+const build = (esbuildConfig, sitemapConfig) => {
   const entry = 'src/index.js';
   const outfile = 'public/app.min.js';
 
@@ -42,6 +43,11 @@ const build = esbuildConfig => {
           .hex('#C07CFF')
           .bold(`${outfile}`)} (${nbBytes})`
       );
+
+      if (sitemapConfig) {
+        console.log('generating sitemap...');
+        generateSitemap(sitemapConfig);
+      }
     })
     .catch(handleFileError({path: entry}));
 };
