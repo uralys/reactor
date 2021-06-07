@@ -74,7 +74,7 @@ Optionally:
     hosts: ["platform.localhost"]
   },
   sitemap: {
-    publicPath = 'public',
+    publicPath = './public',
     links = [],
     hostname: 'https://your.domain',
     outputName = 'sitemap.xml'

@@ -9,7 +9,7 @@ const generateSitemap = sitemapConfig => {
   console.log('\n☢️  Generating sitemap...');
 
   const {
-    publicPath = 'public',
+    publicPath = './public',
     links = [],
     hostname,
     outputName = 'sitemap.xml'
@@ -27,7 +27,8 @@ const generateSitemap = sitemapConfig => {
 
   return streamToPromise(Readable.from(links).pipe(stream)).then(data => {
     const sitemapXML = data.toString();
-    const output = path.resolve(`${publicPath}/${outputName}`);
+    const outputPath = path.resolve(process.cwd(), publicPath);
+    const output = path.resolve(`${outputPath}/${outputName}`);
 
     fs.writeFile(output, sitemapXML, err => {
       if (err) {
