@@ -45,7 +45,6 @@ const build = (esbuildConfig, sitemapConfig) => {
       );
 
       if (sitemapConfig) {
-        console.log('generating sitemap...');
         generateSitemap(sitemapConfig);
       }
     })

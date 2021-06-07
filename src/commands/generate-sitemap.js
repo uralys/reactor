@@ -6,13 +6,28 @@ const {Readable} = require('stream');
 
 // https://github.com/ekalinin/sitemap.js#generate-a-one-time-sitemap-from-a-list-of-urls
 const generateSitemap = sitemapConfig => {
-  const {publicPath = 'public', links = []} = sitemapConfig;
-  const stream = new SitemapStream({hostname: 'https://...'});
+  console.log('\n☢️  Generating sitemap...');
+
+  const {
+    publicPath = 'public',
+    links = [],
+    hostname,
+    outputName = 'sitemap.xml'
+  } = sitemapConfig;
+
+  if (!hostname) {
+    console.error(
+      `❌ [sitemap] --> you must provide a hostname for your links`
+    );
+
+    return;
+  }
+
+  const stream = new SitemapStream({hostname});
 
   return streamToPromise(Readable.from(links).pipe(stream)).then(data => {
     const sitemapXML = data.toString();
-    const outputName = `sitemap.xml`;
-    const output = path.resolve(__dirname, `${publicPath}/${outputName}`);
+    const output = path.resolve(`${publicPath}/${outputName}`);
 
     fs.writeFile(output, sitemapXML, err => {
       if (err) {

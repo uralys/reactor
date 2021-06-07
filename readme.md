@@ -57,6 +57,8 @@ Optionally:
 
 - `npm run toc` to generate TOC from you markdowns if you use `Reactor` to generate a documentation website. I'll document this later.
 
+- add a sitemap config to generate your `sitemap.xml`
+
 ## Config
 
 ```js
@@ -69,7 +71,13 @@ Optionally:
     dist: './path/to/tocs'
   },
   start: {
-    "hosts": ["platform.localhost"]
+    hosts: ["platform.localhost"]
+  },
+  sitemap: {
+    publicPath = 'public',
+    links = [],
+    hostname: 'https://your.domain',
+    outputName = 'sitemap.xml'
   }
 }
 ```
