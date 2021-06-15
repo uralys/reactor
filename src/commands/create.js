@@ -26,8 +26,8 @@ const create = () => {
   // ---------
   const projectPath = path.resolve(process.cwd(), './');
   const bootPath = path.resolve(
-    projectPath,
-    '/node_modules/@uralys/reactor/boot'
+    process.cwd(),
+    './node_modules/@uralys/reactor/boot'
   );
 
   // ---------
