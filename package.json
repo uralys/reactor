@@ -15,8 +15,8 @@
   "dependencies": {
     "chalk": "^4.1.1",
     "connect-history-api-fallback": "^1.6.0",
-    "doctoc": "^1.2.0",
-    "esbuild": "^0.12.6",
+    "doctoc": "^2.0.1",
+    "esbuild": "^0.12.8",
     "esbuild-plugin-svgr": "^0.0.1",
     "live-server": "^1.2.1",
     "mkdirp": "^1.0.4",

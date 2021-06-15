@@ -25,7 +25,10 @@ const create = () => {
 
   // ---------
   const projectPath = path.resolve(process.cwd(), './');
-  const bootPath = path.resolve(__dirname, '../boot');
+  const bootPath = path.resolve(
+    projectPath,
+    '/node_modules/@uralys/reactor/boot'
+  );
 
   // ---------
   console.log(`☢️  copying files to ${chalk.magenta(projectPath)}`);
