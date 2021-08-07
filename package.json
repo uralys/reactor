@@ -13,24 +13,24 @@
     "release": "npm publish ./dist"
   },
   "dependencies": {
-    "chalk": "^4.1.1",
+    "chalk": "^4.1.2",
     "connect-history-api-fallback": "^1.6.0",
     "doctoc": "^2.0.1",
-    "esbuild": "^0.12.15",
-    "esbuild-plugin-svgr": "^0.0.2",
+    "esbuild": "^0.12.18",
+    "esbuild-plugin-svgr": "^0.0.3",
     "live-server": "^1.2.1",
     "mkdirp": "^1.0.4",
     "rimraf": "^3.0.2",
     "shelljs": "^0.8.4",
     "sitemap": "^7.0.0",
-    "yargs": "^17.0.1"
+    "yargs": "^17.1.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.30.0",
+    "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-react": "^7.24.0",
-    "npm-check-updates": "^11.8.2"
+    "npm-check-updates": "^11.8.3"
   }
 }
