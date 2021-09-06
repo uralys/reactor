@@ -57,12 +57,11 @@ Once your app is created, you can use:
 
 - `npm run toc` to generate TOC from you markdowns if you use `Reactor` to generate a documentation website. I'll document this later.
 
-
 ### indexation (Optional)
 
 - add a sitemap config to generate your `sitemap.xml`
-- for Google configure your indexation on https://search.google.com/search-console
-- for DuckDuckGo configure your indexation on Bing (import from google search-console) https://www.bing.com/webmasters
+- for Google configure your indexation on <https://search.google.com/search-console>
+- for DuckDuckGo configure your indexation on Bing (import from google search-console) <https://www.bing.com/webmasters>
 
 ## Config
 
