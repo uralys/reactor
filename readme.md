@@ -88,6 +88,10 @@ Once your app is created, you can use:
 
 ## Tips and suggestions
 
+### monitoring
+
+- analyse perfs with <https://pagespeed.web.dev/>
+
 ### frontend
 
 - use [`La Taverne`](https://github.com/uralys/taverne) for your state management
