@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+// -----------------------------------------------------------------------------
 
 import chalk from 'chalk';
 import {readFile} from 'fs/promises';
@@ -10,9 +11,6 @@ import create from './commands/create.js';
 import generateTOC from './commands/generate-toc.js';
 import start from './commands/start.js';
 
-import {fileURLToPath} from 'url';
-import process from 'process';
-
 // -----------------------------------------------------------------------------
 
 const DOCUMENTATION_URL =
@@ -23,8 +21,6 @@ const DOCUMENTATION_URL =
 const pkg = JSON.parse(
   await readFile(new URL('../package.json', import.meta.url))
 );
-
-// const pplop = require('../package.json');
 
 // -----------------------------------------------------------------------------
 
@@ -153,22 +149,25 @@ const createCLI = cliParams => {
 };
 
 // -----------------------------------------------------------------------------
-// binary run:
+// binary runner
 
-// https://stackoverflow.com/a/60309682/959219
-if (process.argv[1] === fileURLToPath(import.meta.url)) {
+const isReactorRunner = () => {
+  const splitters = process.argv[1].split('/');
+  return splitters[splitters.length - 1].indexOf('reactor') !== -1;
+};
+
+if (isReactorRunner()) {
   const cliParams = process.argv.slice(2);
   const cli = createCLI(cliParams);
   const success = reactor(cli.argv);
 
   if (!success) {
-    console.log('--------<<<< showhelp');
     cli.showHelp();
   }
 }
 
 // -----------------------------------------------------------------------------
-// exporting for testing purposes:
+// exporting for testing purposes
 
 export default reactor;
 export {BUILD, createCLI};
