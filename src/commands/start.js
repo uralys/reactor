@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import chalk from 'chalk';
 import esbuild from 'esbuild';
 import liveServer from 'live-server';

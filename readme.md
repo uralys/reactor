@@ -1,28 +1,15 @@
 # Reactor
 
-A simple "createReactApp" using esbuild instead of webpack.
+🪄 A simple "CreateReactApp-like", using **esbuild**, to bootstrap your `React app` and `npm scripts`.
 
-```sh
-> npx reactor create
-```
-
-to bootstrap your `React app` and `npm scripts`.
+✅ Requires nodejs;
 
 ## create
 
 First prepare your new project with a startup package.json:
 
 ```sh
-> mkdir yourApp
-> cd yourApp
-> npm init
-```
-
-(more info on [npmjs doc](https://docs.npmjs.com/cli/v6/commands/npm-init))
-
-Now you can install `Reactor`:
-
-```sh
+> mkdir yourApp; cd yourApp
 > npm i --save-dev @uralys/reactor
 ```
 

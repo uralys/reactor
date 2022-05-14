@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import chalk from 'chalk';
 import fs from 'fs';
 import path from 'path';
@@ -66,9 +64,7 @@ const create = async () => {
   // ---------
   console.log('☢️  reactor updated you files successfully.');
   console.log(
-    `✅ you can now start your App \n > ${chalk.bold.green(
-      'npm run start:dev'
-    )}`
+    `✅ you can now start your App \n> ${chalk.bold.green('npm run start:dev')}`
   );
 };
 
