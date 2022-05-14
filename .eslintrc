@@ -8,6 +8,9 @@
   },
   "parserOptions": {
     "ecmaVersion": 2022,
+    "ecmaFeatures": {
+      "modules": true
+    },
     "sourceType": "module"
   },
   "globals": {

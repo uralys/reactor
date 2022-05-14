@@ -1,15 +1,20 @@
 #!/usr/bin/env node
 
-const chalk = require('chalk');
-const esbuild = require('esbuild');
-const liveServer = require('live-server');
-const historyApiFallback = require('connect-history-api-fallback');
-const svgrPlugin = require('esbuild-plugin-svgr');
-const handleFileError = require('../lib/handle-file-error');
-const writeMetafile = require('../lib/write-metafile');
+import chalk from 'chalk';
+import esbuild from 'esbuild';
+import liveServer from 'live-server';
+import historyApiFallback from 'connect-history-api-fallback';
+import svgrPlugin from 'esbuild-plugin-svgr';
+
+import handleFileError from '../lib/handle-file-error.js';
+import writeMetafile from '../lib/write-metafile.js';
+
+// -----------------------------------------------------------------------------
 
 const PUBLIC = 'public';
 const entry = 'src/index.js';
+
+// -----------------------------------------------------------------------------
 
 const start = (esbuildConfig = {}, startConfig = {hosts: ['localhost']}) => {
   console.log('☢️  [start] warming up esbuild', {entry});
@@ -53,4 +58,4 @@ const start = (esbuildConfig = {}, startConfig = {hosts: ['localhost']}) => {
     .catch(handleFileError({path: entry}));
 };
 
-module.exports = start;
+export default start;

@@ -1,11 +1,14 @@
 #!/usr/bin/env node
 
-const chalk = require('chalk');
-const esbuild = require('esbuild');
-const svgrPlugin = require('esbuild-plugin-svgr');
-const handleFileError = require('../lib/handle-file-error');
-const writeMetafile = require('../lib/write-metafile');
-const generateSitemap = require('./generate-sitemap');
+import chalk from 'chalk';
+import esbuild from 'esbuild';
+import svgrPlugin from 'esbuild-plugin-svgr';
+
+import handleFileError from '../lib/handle-file-error.js';
+import writeMetafile from '../lib/write-metafile.js';
+import generateSitemap from './generate-sitemap.js';
+
+// -----------------------------------------------------------------------------
 
 const build = (esbuildConfig, sitemapConfig) => {
   const entry = 'src/index.js';
@@ -51,4 +54,4 @@ const build = (esbuildConfig, sitemapConfig) => {
     .catch(handleFileError({path: entry}));
 };
 
-module.exports = build;
+export default build;

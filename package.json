@@ -7,10 +7,11 @@
     "reactor": "src/reactor.js"
   },
   "engine": {
-    "node": ">=16"
+    "node": ">=17.9.0"
   },
   "scripts": {
     "lint": "eslint -c .eslintrc src",
+    "test": "ava",
     "ncu": "npm-check-updates",
     "build": "rm -rf ./dist && sh scripts/copy-package-files.sh",
     "prerelease": "npm run build",
@@ -30,7 +31,7 @@
     "yargs": "^17.5.0"
   },
   "devDependencies": {
-    "babel-eslint": "^10.1.0",
+    "ava": "^4.2.0",
     "eslint": "^8.15.0",
     "eslint-config-prettier": "^8.5.0",
     "npm-check-updates": "^12.5.11"

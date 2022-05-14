@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
-const chalk = require('chalk');
-const fs = require('fs');
-const path = require('path');
-const shell = require('shelljs');
+import chalk from 'chalk';
+import fs from 'fs';
+import path from 'path';
+import shell from 'shelljs';
 
 // -----------------------------------------------------------------------------
 
@@ -31,6 +31,7 @@ const create = () => {
   );
 
   // ---------
+
   console.log(`☢️  copying files to ${chalk.magenta(projectPath)}`);
   shell.cp('-r', `${bootPath}/*`, projectPath);
   shell.cp('-r', `${bootPath}/.*`, projectPath);
@@ -69,4 +70,4 @@ const create = () => {
   );
 };
 
-module.exports = create;
+export default create;

@@ -1,7 +1,8 @@
-const fs = require('fs');
+import fs from 'fs';
+
 const output = 'meta.json';
 
-module.exports = metafile => {
+export default metafile => {
   console.log(`☢️  exporting metafile in ${output}`);
   try {
     fs.writeFileSync(output, JSON.stringify(metafile));

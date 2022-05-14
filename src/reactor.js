@@ -1,15 +1,30 @@
 #!/usr/bin/env node
 
 import chalk from 'chalk';
+import {readFile} from 'fs/promises';
 import path from 'path';
 import yargs from 'yargs';
 
-import pkg from '../package.json';
+import build from './commands/build.js';
+import create from './commands/create.js';
+import generateTOC from './commands/generate-toc.js';
+import start from './commands/start.js';
 
-import build from './commands/build';
-import create from './commands/create';
-import generateTOC from './commands/generate-toc';
-import start from './commands/start';
+import {fileURLToPath} from 'url';
+import process from 'process';
+
+// -----------------------------------------------------------------------------
+
+const DOCUMENTATION_URL =
+  'https://github.com/uralys/reactor/blob/master/readme.md';
+
+// -----------------------------------------------------------------------------
+
+const pkg = JSON.parse(
+  await readFile(new URL('../package.json', import.meta.url))
+);
+
+// const pplop = require('../package.json');
 
 // -----------------------------------------------------------------------------
 
@@ -59,11 +74,10 @@ const getAdditionalConfig = () => {
 
 // -----------------------------------------------------------------------------
 
-const reactor = args => {
+const reactor = argv => {
   const command = argv._[0];
   if (!commands.includes(command)) {
-    yargs.showHelp();
-    return;
+    return false;
   }
 
   switch (command) {
@@ -107,26 +121,54 @@ const reactor = args => {
       console.log('🔴 not handled');
     }
   }
+
+  return true;
 };
 
 // -----------------------------------------------------------------------------
 
-const argv = yargs(process.argv.slice(2))
-  .usage('Usage: $0 <command> [options]')
-  .command(BUILD, 'use esbuild to create the distribution files')
-  .command(START, 'run the local dev server')
-  .command(CREATE, 'bootstrap your React app with initial files')
-  .command(TOC, 'generate TOC for your documentation from your markdown files')
-  .demandCommand(1, 1, commandMessage, commandMessage)
-  .help('h')
-  .version(pkg.version)
-  .alias('version', 'v')
-  .epilog(
-    `${chalk.bold.green(
-      `Reactor v${pkg.version}`
-    )}\nDocumentation on https://reactor.uralys.com`
-  ).argv;
+const createCLI = cliParams => {
+  const cli = yargs(cliParams);
+
+  cli
+    .usage('Usage: $0 <command> [options]')
+    .command(BUILD, 'use esbuild to create the distribution files')
+    .command(START, 'run the local dev server')
+    .command(CREATE, 'bootstrap your React app with initial files')
+    .command(
+      TOC,
+      'generate TOC for your documentation from your markdown files'
+    )
+    .demandCommand(1, 1, commandMessage, commandMessage)
+    .help('h')
+    .version(pkg.version)
+    .alias('version', 'v')
+    .epilog(
+      `${chalk.bold.green(
+        `Reactor v${pkg.version}`
+      )}\nDocumentation on ${DOCUMENTATION_URL}`
+    );
+
+  return cli;
+};
 
 // -----------------------------------------------------------------------------
+// binary run:
 
-reactor(argv);
+// https://stackoverflow.com/a/60309682/959219
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  const cliParams = process.argv.slice(2);
+  const cli = createCLI(cliParams);
+  const success = reactor(cli.argv);
+
+  if (!success) {
+    console.log('--------<<<< showhelp');
+    cli.showHelp();
+  }
+}
+
+// -----------------------------------------------------------------------------
+// exporting for testing purposes:
+
+export default reactor;
+export {BUILD, createCLI};

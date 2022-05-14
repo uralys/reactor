@@ -1,11 +1,12 @@
-const chalk = require('chalk');
-const fs = require('fs');
-const path = require('path');
-const mkdirp = require('mkdirp');
-const rimraf = require('rimraf');
-const transform = require('doctoc/lib/transform');
+import chalk from 'chalk';
+import fs from 'fs';
+import path from 'path';
+import mkdirp from 'mkdirp';
+import rimraf from 'rimraf';
 
-const handleFileError = require('../lib/handle-file-error');
+import transform from 'doctoc/lib/transform.js';
+
+import handleFileError from '../lib/handle-file-error.js';
 
 // -----------------------------------------------------------------------------
 
@@ -88,4 +89,4 @@ const generateTOC = (documentationConfig = {}) => {
 
 // -----------------------------------------------------------------------------
 
-module.exports = generateTOC;
+export default generateTOC;

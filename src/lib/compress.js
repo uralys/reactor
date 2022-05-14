@@ -1,8 +1,13 @@
-const {createBrotliCompress} = require('zlib');
-const {pipeline} = require('stream');
-const {createReadStream, createWriteStream, statSync} = require('fs');
-const {promisify} = require('util');
+import {createBrotliCompress} from 'zlib';
+import {pipeline} from 'stream';
+import {createReadStream, createWriteStream, statSync} from 'fs';
+import {promisify} from 'util';
+
+// -----------------------------------------------------------------------------
+
 const pipe = promisify(pipeline);
+
+// -----------------------------------------------------------------------------
 
 const convertBytes = function (bytes) {
   const sizes = ['b', 'kb', 'Mb', 'Gb', 'Tb'];
@@ -43,4 +48,4 @@ const brotli = meta => {
   return Promise.all(assets.map(compress));
 };
 
-module.exports = brotli;
+export default brotli;

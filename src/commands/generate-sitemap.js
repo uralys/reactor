@@ -1,8 +1,10 @@
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
 
-const {SitemapStream, streamToPromise} = require('sitemap');
-const {Readable} = require('stream');
+import {SitemapStream, streamToPromise} from 'sitemap';
+import {Readable} from 'stream';
+
+// -----------------------------------------------------------------------------
 
 // https://github.com/ekalinin/sitemap.js#generate-a-one-time-sitemap-from-a-list-of-urls
 const generateSitemap = sitemapConfig => {
@@ -39,4 +41,4 @@ const generateSitemap = sitemapConfig => {
   });
 };
 
-module.exports = generateSitemap;
+export default generateSitemap;
