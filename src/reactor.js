@@ -2,7 +2,6 @@
 // -----------------------------------------------------------------------------
 
 import chalk from 'chalk';
-import {readFile} from 'fs/promises';
 import path from 'path';
 import yargs from 'yargs';
 
@@ -10,6 +9,12 @@ import build from './commands/build.js';
 import create from './commands/create.js';
 import generateTOC from './commands/generate-toc.js';
 import start from './commands/start.js';
+import readJSON from './lib/read-json.js';
+
+// -----------------------------------------------------------------------------
+
+// import {createRequire} from 'module';
+// const _require = createRequire(import.meta.url);
 
 // -----------------------------------------------------------------------------
 
@@ -18,9 +23,7 @@ const DOCUMENTATION_URL =
 
 // -----------------------------------------------------------------------------
 
-const pkg = JSON.parse(
-  await readFile(new URL('../package.json', import.meta.url))
-);
+const pkg = readJSON('../package.json');
 
 // -----------------------------------------------------------------------------
 
@@ -38,12 +41,12 @@ const CONFIG_FILE = 'reactor.config.js';
 
 // -----------------------------------------------------------------------------
 
-const getAdditionalConfig = () => {
+const getAdditionalConfig = async () => {
   let additionalConfig;
 
   try {
     const configPath = path.resolve(process.cwd(), `./${CONFIG_FILE}`);
-    additionalConfig = require(configPath);
+    additionalConfig = await import(configPath);
   } catch (e) {}
 
   if (!additionalConfig) {
@@ -70,7 +73,7 @@ const getAdditionalConfig = () => {
 
 // -----------------------------------------------------------------------------
 
-const reactor = argv => {
+const reactor = async argv => {
   const command = argv._[0];
   if (!commands.includes(command)) {
     return false;
@@ -82,7 +85,7 @@ const reactor = argv => {
         prebuild = null,
         esbuildConfig,
         sitemapConfig
-      } = getAdditionalConfig();
+      } = await getAdditionalConfig();
       if (prebuild) {
         prebuild();
       }
@@ -95,7 +98,7 @@ const reactor = argv => {
         prebuild = null,
         esbuildConfig,
         startConfig
-      } = getAdditionalConfig();
+      } = await getAdditionalConfig();
       if (prebuild) {
         prebuild();
       }
@@ -104,7 +107,7 @@ const reactor = argv => {
       break;
     }
     case TOC: {
-      const {documentationConfig} = getAdditionalConfig();
+      const {documentationConfig} = await getAdditionalConfig();
       generateTOC(documentationConfig);
       break;
     }
@@ -156,14 +159,18 @@ const isReactorRunner = () => {
   return splitters[splitters.length - 1].indexOf('reactor') !== -1;
 };
 
-if (isReactorRunner()) {
+const run = async () => {
   const cliParams = process.argv.slice(2);
   const cli = createCLI(cliParams);
-  const success = reactor(cli.argv);
+  const success = await reactor(cli.argv);
 
   if (!success) {
     cli.showHelp();
   }
+};
+
+if (isReactorRunner()) {
+  run();
 }
 
 // -----------------------------------------------------------------------------

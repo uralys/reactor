@@ -4,6 +4,7 @@ import chalk from 'chalk';
 import fs from 'fs';
 import path from 'path';
 import shell from 'shelljs';
+import readJSON from '../lib/read-json.js';
 
 // -----------------------------------------------------------------------------
 
@@ -40,7 +41,7 @@ const create = () => {
   // ---------
   console.log(`☢️  updating package.json scripts...`);
   const pkgPath = `${projectPath}/package.json`;
-  const pkg = require(pkgPath);
+  const pkg = readJSON(pkgPath);
 
   pkg.scripts = {
     prebuild: 'rm -rf ./dist',
