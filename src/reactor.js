@@ -18,7 +18,7 @@ const DOCUMENTATION_URL =
 
 // -----------------------------------------------------------------------------
 
-const pkg = readJSON('../package.json');
+const pkg = readJSON(new URL('../package.json', import.meta.url));
 
 // -----------------------------------------------------------------------------
 
