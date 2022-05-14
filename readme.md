@@ -6,7 +6,18 @@
 
 🪄 A simple "CreateReactApp-like", using **esbuild**, to bootstrap your `React app` and `npm scripts`.
 
-## create
+```sh
+> npx reactor
+Usage: reactor <command>
+
+Commands:
+  reactor create  bootstrap your React app with initial files
+  reactor start   run the local dev server
+  reactor build   use esbuild to create the distribution files
+  reactor toc     generate TOC for your documentation from your markdown files
+```
+
+## create your app
 
 First prepare your new project with a startup package.json:
 
