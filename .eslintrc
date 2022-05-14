@@ -1,23 +1,19 @@
 {
   "extends": [
-    "standard",
-    "eslint:recommended",
     "prettier"
   ],
-  "parser": "babel-eslint",
   "rules": {
     "no-debugger": "off",
     "no-console": "off"
   },
+  "parserOptions": {
+    "ecmaVersion": 2022
+  },
   "globals": {
     "fetch": false
   },
-  "settings": {
-    "react": {
-      "version": "17"
-    }
-  },
   "ignorePatterns": [
-    "*.html"
+    "*.html",
+    "**/boot"
   ]
 }
