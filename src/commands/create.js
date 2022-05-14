@@ -10,7 +10,6 @@ import readJSON from '../lib/read-json.js';
 
 const DEV_DEPS = [
   'eslint',
-  'babel-eslint',
   'eslint-config-prettier',
   'eslint-config-standard',
   'eslint-plugin-react',
@@ -21,7 +20,7 @@ const DEPS = ['react', 'react-dom', 'styled-components'];
 
 // -----------------------------------------------------------------------------
 
-const create = () => {
+const create = async () => {
   console.log('☢️  creating your App...');
 
   // ---------
@@ -41,7 +40,7 @@ const create = () => {
   // ---------
   console.log(`☢️  updating package.json scripts...`);
   const pkgPath = `${projectPath}/package.json`;
-  const pkg = readJSON(pkgPath);
+  const pkg = await readJSON(pkgPath);
 
   pkg.scripts = {
     prebuild: 'rm -rf ./dist',
@@ -58,8 +57,10 @@ const create = () => {
   });
 
   // ---------
-  console.log(`☢️  installing dev deps...`);
+
+  console.log(`☢️  installing deps...`);
   shell.exec(`npm i --save ${DEPS.join(' ')}`);
+  console.log(`☢️  installing dev deps...`);
   shell.exec(`npm i --save-dev ${DEV_DEPS.join(' ')}`);
 
   // ---------

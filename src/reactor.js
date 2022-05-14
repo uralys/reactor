@@ -13,11 +13,6 @@ import readJSON from './lib/read-json.js';
 
 // -----------------------------------------------------------------------------
 
-// import {createRequire} from 'module';
-// const _require = createRequire(import.meta.url);
-
-// -----------------------------------------------------------------------------
-
 const DOCUMENTATION_URL =
   'https://github.com/uralys/reactor/blob/master/readme.md';
 
@@ -112,7 +107,7 @@ const reactor = async argv => {
       break;
     }
     case CREATE: {
-      create();
+      await create();
       break;
     }
     default: {
