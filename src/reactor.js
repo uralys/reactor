@@ -1,15 +1,15 @@
 #!/usr/bin/env node
 
-const chalk = require('chalk');
-const path = require('path');
-const yargs = require('yargs');
+import chalk from 'chalk';
+import path from 'path';
+import yargs from 'yargs';
 
-const pkg = require('../package.json');
+import pkg from '../package.json';
 
-const build = require('./commands/build');
-const create = require('./commands/create');
-const generateTOC = require('./commands/generate-toc');
-const start = require('./commands/start');
+import build from './commands/build';
+import create from './commands/create';
+import generateTOC from './commands/generate-toc';
+import start from './commands/start';
 
 // -----------------------------------------------------------------------------
 
