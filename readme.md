@@ -1,8 +1,10 @@
 # Reactor
 
-🪄 A simple "CreateReactApp-like", using **esbuild**, to bootstrap your `React app` and `npm scripts`.
+[![Build Status](https://travis-ci.com/uralys/reactor.svg?branch=master)](https://travis-ci.com/uralys/reactor)
+[![License](https://img.shields.io/badge/License-MIT-green.svg?colorB=3cc712)](./license)
+[![version](https://img.shields.io/github/package-json/v/uralys/reactor)](https://github.com/uralys/reactor/tags)
 
-✅ Requires nodejs;
+🪄 A simple "CreateReactApp-like", using **esbuild**, to bootstrap your `React app` and `npm scripts`.
 
 ## create
 

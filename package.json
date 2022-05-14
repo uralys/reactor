@@ -3,6 +3,7 @@
   "version": "1.4.5",
   "description": "🦊 Tooling to create and build your React app",
   "type": "module",
+  "license": "MIT",
   "bin": {
     "reactor": "src/reactor.js"
   },
