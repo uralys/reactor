@@ -1,6 +1,6 @@
 {
   "name": "@uralys/reactor",
-  "version": "1.4.6",
+  "version": "1.4.7",
   "description": "🦊 Tooling to create and build your React app",
   "type": "module",
   "license": "MIT",
