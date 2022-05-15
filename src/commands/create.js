@@ -40,6 +40,8 @@ const create = async () => {
   const pkgPath = `${projectPath}/package.json`;
   const pkg = await readJSON(pkgPath);
 
+  pkg.type = 'module';
+
   pkg.scripts = {
     prebuild: 'rm -rf ./dist',
     build: 'reactor build',

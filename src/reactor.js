@@ -41,7 +41,7 @@ const getAdditionalConfig = async () => {
 
   try {
     const configPath = path.resolve(process.cwd(), `./${CONFIG_FILE}`);
-    additionalConfig = await import(configPath);
+    additionalConfig = (await import(configPath)).default;
   } catch (e) {}
 
   if (!additionalConfig) {
