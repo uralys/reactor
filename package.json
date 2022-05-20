@@ -19,12 +19,12 @@
     "release": "npm publish ./dist"
   },
   "dependencies": {
+    "@compodoc/live-server": "^1.2.3",
     "chalk": "^5.0.1",
     "connect-history-api-fallback": "^1.6.0",
     "doctoc": "^2.2.0",
     "esbuild": "^0.14.39",
     "esbuild-plugin-svgr": "^1.0.1",
-    "live-server": "^1.2.2",
     "mkdirp": "^1.0.4",
     "rimraf": "^3.0.2",
     "shelljs": "^0.8.5",

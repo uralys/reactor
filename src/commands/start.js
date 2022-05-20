@@ -1,6 +1,6 @@
 import chalk from 'chalk';
 import esbuild from 'esbuild';
-import liveServer from 'live-server';
+import liveServer from '@compodoc/live-server';
 import historyApiFallback from 'connect-history-api-fallback';
 import svgrPlugin from 'esbuild-plugin-svgr';
 
