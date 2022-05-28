@@ -15,7 +15,7 @@ const entry = 'src/index.js';
 // -----------------------------------------------------------------------------
 
 const start = (esbuildConfig = {}, startConfig = {hosts: ['localhost']}) => {
-  console.log('☢️  [start] warming up esbuild', {entry});
+  console.log('☢️  building with esbuild');
 
   esbuild
     .build({
@@ -29,17 +29,18 @@ const start = (esbuildConfig = {}, startConfig = {hosts: ['localhost']}) => {
       sourcemap: true,
       watch: true,
       plugins: [svgrPlugin()],
+      ...esbuildConfig,
       define: {
         'process.env.NODE_ENV': '"development"',
-        global: 'globalThis'
-      },
-      ...esbuildConfig
+        global: 'globalThis',
+        ...esbuildConfig.define
+      }
     })
     .then(result => {
       if (esbuildConfig.metafile) {
         writeMetafile(result.metafile);
       }
-
+      console.log(`${chalk.green(' ✔ Success')}`);
       console.log('\n☢️  server running:');
 
       startConfig.hosts.map(host =>

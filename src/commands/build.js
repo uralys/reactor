@@ -12,7 +12,7 @@ const build = (esbuildConfig, sitemapConfig) => {
   const entry = 'src/index.js';
   const outfile = 'public/app.min.js';
 
-  console.log('☢️  [build] warming up esbuild', {entry, outfile});
+  console.log('☢️  building with esbuild', {outfile});
 
   esbuild
     .build({
@@ -25,11 +25,12 @@ const build = (esbuildConfig, sitemapConfig) => {
         '.js': 'jsx'
       },
       plugins: [svgrPlugin()],
+      ...esbuildConfig,
       define: {
         'process.env.NODE_ENV': '"production"',
-        global: 'globalThis'
-      },
-      ...esbuildConfig
+        global: 'globalThis',
+        ...esbuildConfig.define
+      }
     })
     .then(result => {
       if (esbuildConfig.metafile) {

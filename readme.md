@@ -65,6 +65,8 @@ Once your app is created, you can use:
 
 ## Config
 
+You can update `reactor.config.js`:
+
 ```js
 {
   esbuild: {
@@ -84,6 +86,13 @@ Once your app is created, you can use:
     outputName = 'sitemap.xml'
   }
 }
+```
+
+If your project uses `dotenv`, call it from the top of `reactor.config.js`
+
+```js
+import dotenv from 'dotenv';
+dotenv.config();
 ```
 
 ## Tips and suggestions
