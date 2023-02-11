@@ -35,6 +35,6 @@
     "ava": "^4.2.0",
     "eslint": "^8.15.0",
     "eslint-config-prettier": "^8.5.0",
-    "npm-check-updates": "^12.5.11"
+    "npm-check-updates": "^16.7.4"
   }
 }
