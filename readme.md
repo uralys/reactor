@@ -1,3 +1,8 @@
+### archived in 2024
+
+I created and used this tool to create fast frontends using esbuild.
+It was experimental and is today irrlevant since we have tools like <https://github.com/vitejs/vite>, which I use on every frontends.
+
 # Reactor
 
 [![Build Status](https://travis-ci.com/uralys/reactor.svg?branch=master)](https://travis-ci.com/uralys/reactor)
